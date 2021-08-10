@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excelsa", "Excelsa.csproj", "{048C1A80-23E3-4B06-AB1A-8FA1F8FD56C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{048C1A80-23E3-4B06-AB1A-8FA1F8FD56C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048C1A80-23E3-4B06-AB1A-8FA1F8FD56C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048C1A80-23E3-4B06-AB1A-8FA1F8FD56C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048C1A80-23E3-4B06-AB1A-8FA1F8FD56C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F14C1CB2-B098-48F6-A681-F388ADCE8A09}
+	EndGlobalSection
+EndGlobal

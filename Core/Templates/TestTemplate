@@ -1,0 +1,40 @@
+﻿using Excelsa.Core;
+using Excelsa.Core.Base;
+using Excelsa.Domain.Pages;
+using NUnit.Framework;
+using System.Collections.Generic;
+
+namespace Excelsa.Main.Test
+{
+    class #TEST_NAME#Test : TestBase
+    {
+        public override List<PageBase> Pages { get; } = new List<PageBase>()
+        {
+#LIST_OF_PAGES#
+        };
+
+        [Test]
+        public override void ConductTest()
+        {
+            foreach(var page in Pages)
+            {
+                page.InitializeTest();
+
+                foreach(var component in page.Components)
+                {
+                    component.SetLog();
+                    component.Execute();
+                    component.End();
+                    page.TestLog.Append(component.GetLog());
+
+                    if (page.IsPageNotFound == true) break;
+                }
+
+                page.GetTestStyle();
+                page.EndTest();
+
+                GlobalVariables.MainLog.Append(page.TestLog);
+            }
+        }
+    }
+}

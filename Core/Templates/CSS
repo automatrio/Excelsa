@@ -1,0 +1,319 @@
+﻿* {
+    font-family: Helvetica, sans-serif;
+    
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    text-shadow: 0px 0px 4px rgba(0,0,0,.5);
+}
+
+.centered-body {
+    width: 60%;
+}
+
+.teste-content {
+    display: none;
+    width: 800px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px 0px 20px 0px;
+}
+
+h1 {
+    text-shadow: 0px 0px 4px rgba(0, 102, 255, 0.692);
+}
+
+h2 {
+    margin: 5px 0px 5px 0px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+hr {
+    width: 500px;
+    border-top: 1px solid #555;
+}
+
+span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.listagem {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+    transition: 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.listlink {
+    display: flex;
+    padding: 3px 15px 3px 15px;
+    margin: 2px 0px 8px 0px;
+    width: 800px;
+    color: white;
+    justify-content: flex-start;
+    opacity: 0;
+    transform-origin: top;
+    transition: 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.listlink.show {
+    opacity: 1;
+}
+
+.listlink span, .expandable span {
+    transition: 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.listlink:hover span {
+    margin: 0px 0px 0px 5px;
+    cursor:pointer;
+}
+
+.expandable {
+    display: block;
+    width: 450px;
+    margin: 5px 0px 5px 0px;
+    padding: 0px 15px 0px 15px;
+    color: white;
+    transform-origin: top;
+}
+
+.expandable:hover span {
+    padding: 0px 0px 0px 5px;
+    cursor:pointer;
+}
+
+.expandable-content {
+    display: none;
+    text-align: left;
+    transform-origin: top;
+    padding: 12px 0px 12px 20px;
+    overflow: hidden;
+}
+
+.expandable-content * {
+    text-align: left;
+}
+
+.success {
+    background-color: rgba(0, 158, 79, 0.6);
+    box-shadow: 0px 0px 2px 2px rgba(0, 158, 79, 0.6);
+    text-shadow: 0px 2px 3px rgb(0, 0, 0);
+    transition: 150ms;
+}
+
+.warning {
+    background-color: rgba(232, 123, 0, .65);
+    box-shadow: 0px 0px 2px 2px rgba(232, 123, 0, .65);
+    text-shadow: 0px 2px 3px rgb(0, 0, 0);
+    transition: 150ms;
+}
+
+.error {
+    background-color: rgb(230, 14, 14, .6);
+    box-shadow: 0px 0px 2px 2px rgb(230, 14, 14, .6);
+    text-shadow: 0px 2px 3px rgb(0, 0, 0);
+    transition: 150ms;
+}
+
+.not-found {
+    background-color: rgba(84, 100, 117, .7);
+    box-shadow: 0px 0px 2px 2px rgba(84, 100, 117, .7);
+    text-shadow: 0px 2px 4px rgb(32, 32, 32);
+    transition: 150ms;
+}
+
+.success:hover {
+    background-color: rgba(0, 158, 79, 0.75);
+    box-shadow: 0px 0px 2px 4px rgba(0, 158, 79, 0.75);
+    text-shadow: 0px 0px 2px white;
+    cursor: pointer;
+}
+
+.warning:hover {
+    background-color: rgba(232, 123, 0, .8);
+    box-shadow: 0px 0px 2px 4px rgba(232, 123, 0, .8);
+    text-shadow: 0px 0px 2px white;
+    cursor: pointer;
+}
+
+.error:hover {
+    background-color: rgb(230, 14, 14, .75);
+    box-shadow: 0px 0px 2px 4px rgb(230, 14, 14, .75);
+    text-shadow: 0px 0px 2px white;
+    cursor: pointer;
+}
+
+.not-found:hover {
+    background-color: rgba(84, 100, 117, .8);
+    box-shadow: 0px 0px 2px 4px rgba(84, 100, 117, .8);
+    text-shadow: 0px 0px 2px white;
+    cursor: pointer;
+}
+
+.success:active {
+    background-color: rgba(0, 158, 79, 0.95);
+    box-shadow: 0px 0px 2px 1px rgba(0, 158, 79, 0.95);
+    text-shadow: 0px 0px 2px black;
+    cursor: pointer;
+}
+
+.warning:active {
+    background-color: rgba(232, 123, 0, .95);
+    box-shadow: 0px 0px 2px 1px rgba(232, 123, 0, .95);
+    text-shadow: 0px 0px 4px white;
+    cursor: pointer;
+}
+
+.error:active {
+    background-color: rgb(230, 14, 14, .95);
+    box-shadow: 0px 0px 2px 1px rgb(230, 14, 14, .95);
+    text-shadow: 0px 0px 4px white;
+    cursor: pointer;
+}
+
+.not-found:active {
+    background-color: rgba(84, 100, 117, .9);
+    box-shadow: 0px 0px 2px 1px rgba(84, 100, 117, .9);
+    cursor: pointer;
+}
+
+.error-item {
+    color: #940000;
+    text-shadow: 0px 1px 2px rgba(200, 0, 0, 0.45);
+    box-shadow: 0px 0px 2px 4px rgba(200, 0, 0, 0.25) inset;
+}
+
+.warning-item {
+    color: rgb(139, 74, 0);
+    text-shadow: 0px 1px 2px rgba(232, 123, 0, .4);
+    box-shadow: 0px 0px 2px 4px rgba(232, 123, 0, .4) inset;
+
+}
+
+.success-item {
+    color: rgb(0, 153, 59);
+    text-shadow: 0px 0px 4px rgb(0 255 42) inset;
+}
+
+.cor {
+    height: 12px;
+    width: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0px 12px 5px 0px;
+}
+.legenda {
+    box-shadow: 0px 1px 2px 2px rgba(0,0,0,.25);
+    background-color: rgba(0,0,0,.2);
+    color: #333;
+    padding: 12px;
+    position: fixed;
+    opacity: 0;
+    top: 10px;
+    left: 10px;
+    font-size:small;
+    list-style-type: none;
+}
+
+.legenda > ul {
+    margin: 0px;
+    padding: 0px;
+    font-size:small;
+    list-style-type: none; 
+}
+
+.close-button {
+    float: right;
+    transition: 150ms;
+}
+
+.close-button:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.close-button:active {
+    transform: scale(0.8);
+}
+
+.search-form {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 12px;
+    justify-self: flex-end;
+    box-shadow: 0px 1px 2px 2px rgba(0,0,0,.25);
+    background-color: rgba(0,0,0,.2);
+    color: #333;
+    
+}
+
+.search-label {
+    font-size: small;
+    font-weight: bold;
+}
+
+.search-icon {
+    margin-left: 12px;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0);
+    font-style: normal;
+}
+
+.search-field {
+    border: #222;
+    transition: 150ms;
+}
+
+.search-field:focus  {
+    transform: scale(1.12);
+    outline: none;
+
+    box-shadow: 0px 0px 2px 2px rgb(91, 91, 255, .4);
+    padding: 4px 2px 4px 2px;
+    margin: 10px;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.filter {
+    margin: 4px;
+}
+
+.filter-button {
+    width: 32px;
+    height: 16px;
+}
+
+.cor-box {
+    height: 20px;
+    width: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}

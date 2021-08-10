@@ -1,0 +1,156 @@
+﻿const testes = document.getElementsByClassName('teste');
+const collapsibles = document.getElementsByClassName('expandable');
+const listlinks = document.getElementsByClassName('listlink');
+const searchField = document.getElementById('search-field');
+const checkboxes = document.getElementsByClassName('filter-box');
+
+var closeButton = document.getElementById('close-button');
+var legenda = document.getElementById('legenda');
+
+for(let box of checkboxes) {
+    box.addEventListener('change', event => {
+        const state = event.target.checked;
+        const type = event.target.id;
+        
+        for(let link of listlinks) {
+            if(link.classList.contains(type)) {
+                if (state == false) {
+                    link.style.display = 'none';
+                }
+                else {
+                    link.style.display = 'flex';
+                }
+            }
+        }
+    });
+}
+
+for (let collapsible of collapsibles) {
+    collapsible.addEventListener(
+        'click',
+        function() {
+            this.classList.toggle('active');
+            var content = this.nextElementSibling;
+
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            }
+            content.animate([
+                { // from
+                    opacity: 0,
+                    transform: 'scaleY(0)'
+                },
+                { // to
+                    opacity: 1,
+                    transform: 'scaleY(1)'
+                }
+              ],{ 
+                    duration: 150,
+                    easing: 'cubic-bezier(0.42, 0, 0.58, 1)' 
+                });
+        });
+}
+
+var i = 0;
+for(let link of listlinks) {
+
+    setTimeout(() => {
+        link.classList.toggle('show');
+    }, 25 * i);
+    i++;
+
+    link.addEventListener('click', () => {
+        activeId = 'teste ' + link.id;
+        const content = document.getElementById(activeId);
+
+        if(content.style.display === 'flex') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'flex';
+        }
+
+        for(let child of content.children) {
+            child.animate([
+                { // from
+                    height: '0px',
+                    opacity: 0,
+                },
+                { // to
+                    height: '18px',
+                    opacity: 1,
+                }
+                ],{ 
+                    duration: 150,
+                    easing: 'cubic-bezier(0.42, 0, 0.58, 1)' 
+                });
+            }
+        
+    });
+}
+
+legenda.animate([
+        { // from
+            opacity: 0,
+        },
+        { // to
+            opacity: 1,
+        }
+        ],{ duration: 500}).finished.then(() => {
+            legenda.style.opacity = 1;
+        });;
+
+closeButton.addEventListener('click', () => {
+    legenda.animate([
+        { // from
+            transform: 'scale(1)',
+            opacity: 1,
+        },
+        { // to
+            transform: 'scale(0.8)',
+            opacity: 0,
+        }
+        ],{ duration: 150}).finished.then(() => {
+            legenda.style.display = 'none';
+        });
+});
+
+function searchForMatricula() {
+    const text = searchField.value.toLowerCase();
+    for(let matricula of listlinks) {
+        if(!matricula.innerText.toLowerCase().includes(text)) {
+            const display = getComputedStyle(matricula).display;
+            if(display === 'flex') {
+                matricula.animate([
+                { // from
+                    transform: 'scaleY(1)',
+                    opacity: 1,
+                },
+                { // to
+                    transform: 'scaleY(0.25)',
+                    opacity: 0,
+                }
+                ],{ duration: 150}).finished.then(() => {
+                    matricula.style.display = 'none';
+                });        
+            }
+        }
+        else {
+            const display = getComputedStyle(matricula).display;
+            if(display === 'none') {
+                matricula.style.display = 'flex';
+                matricula.animate([
+                    { // from
+                        transform: 'scaleY(0)',
+                        opacity: 0,
+                    },
+                    { // to
+                        transform: 'scaleY(1)',
+                        opacity: 1,
+                    }
+                    ],{ duration: 150});
+                }
+        }
+    }
+}

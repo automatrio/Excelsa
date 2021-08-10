@@ -1,0 +1,28 @@
+﻿
+using Excelsa.Core.Base;
+
+
+namespace Excelsa.Domain.Components
+{
+    class #COMPONENT_NAME#Component : ComponentBase
+    {
+        private static readonly string path = "";
+
+        protected override string ScrollIntoViewScript { get; set; } = "";
+        protected override string ScrollIntoViewFallbackScript { get; set; } = "";
+
+        public #COMPONENT_NAME#Component(
+            SpecificationBase specification)
+            : base (
+            "Validating the component #COMPONENT_NAME#",
+            "The component #COMPONENT_NAME# could not be validated.",
+            specification
+            )
+        { }
+
+        public override void MainFlow()
+        {
+            
+        }
+    }
+}

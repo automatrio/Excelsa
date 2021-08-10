@@ -1,0 +1,127 @@
+﻿<html>
+<head>
+    <meta http-equiv="content-type" content="text-html; charset=utf-8">
+    <style>
+
+STYLES_CONTENT
+
+    </style>
+</head>
+<header>
+    <div class="legenda" id="legenda">
+        <i class="close-button" id="close-button">&#x2718;</i>
+        <ul>
+            <li>
+                <span>
+                    <i class="cor" style="background-color: rgba(102, 224, 163)">
+
+                    </i>
+                    Succeeded
+                </span>
+            </li>
+            <li>
+                <span>
+                    <i class="cor" style="background-color: rgb(240, 169, 89)">
+
+                    </i>
+                    Has warnings
+                </span>
+            </li>
+            <li>
+                <span>
+                    <i class="cor" style="background-color: rgb(240, 110, 110)">
+
+                    </i>
+                    Has errors
+                </span>
+            </li>
+            <li>
+                <span>
+                    <i class="cor" style="background-color: rgba(135, 146, 158)">
+
+                    </i>
+                    Not found
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="search-form">
+        <span>
+            <label class="search-label">
+                Filtrar
+            </label>
+        </span>
+
+        <span>
+            <input class="search-field" type="text" id="search-field" onkeydown="searchForMatricula()">
+            <i class="search-icon" onclick="searchForMatricula()">&#x1F50E;&#xFE0E;</i>
+        </span>
+
+        <ul class="filter-options">
+            <li class="filter">
+                <span>
+                    <input 
+                        type="checkbox"
+                        id="success"
+                        checked 
+                        class="filter-box">
+                    <i class="cor-box" style="background-color: rgba(102, 224, 163)"></i>
+                </span>
+            </li>
+            <li class="filter">
+                <span>
+                    <input 
+                        type="checkbox"
+                        id="warning"
+                        checked 
+                        class="filter-box">
+                    <i class="cor-box" style="background-color: rgb(240, 169, 89)"></i>
+                </span>  
+            </li>
+
+            <li class="filter"> 
+                <span>
+                    <input 
+                        type="checkbox" 
+                        id="error"
+                        checked 
+                        class="filter-box">
+                    <i class="cor-box" style="background-color: rgb(240, 110, 110)"></i>
+                </span>
+            </li>
+            <li class="filter">
+                <span>
+                    <input 
+                        type="checkbox"
+                        id="not-found"
+                        checked 
+                        class="filter-box">
+                    <i class="cor-box" style="background-color: rgba(135, 146, 158)"></i>
+                </span>
+            </li>
+        </ul>
+        
+    </div>
+</header>
+<body>
+    <div class='centered-body'>
+        <h1> TESTS_TITLE </h1>
+        <h3>: : : Automated Tests Log : : :</h3>
+        <h5> DATETIME_CONTENT </h5>
+        <hr>
+
+        <ul class="listagem" id='listagem'>
+
+TESTS_CONTENT
+
+        </ul>
+
+    </div>
+    <script type='text/javascript' defer>
+
+JAVASCRIPT_CONTENT
+
+    </script>
+</body>
+</html>
