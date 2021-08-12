@@ -262,3 +262,5 @@ __pycache__/
 santanderMaisCertoUiV2/dist/
 santanderMaisCertoUiV2/package-lock.json
 /package-lock.json
+/Core/appsettings.json
+/Domain/Components/MyOtherComponentComponent.cs

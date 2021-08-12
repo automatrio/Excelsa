@@ -10,7 +10,7 @@ namespace Excelsa.Domain.Pages
         public override string Id { get; set; } = "#PAGE_ID#";
         public override string PageName { get; set; } = "#PAGE_NAME#";
 
-        public override StringBuilder TestLog { get; set; }
+        public override StringBuilder TestLog { get; set; } = new StringBuilder();
 
         public override List<ComponentBase> Components { get; set; } = new List<ComponentBase>()
         {

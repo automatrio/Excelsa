@@ -1,10 +1,6 @@
 ﻿using OfficeOpenXml;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Excelsa.Services
 {
@@ -16,7 +12,7 @@ namespace Excelsa.Services
 
         public ImportExcelService(string pageTemplatePath, string pageDestinationPath, List<string> availableComponents)
         {
-            ExcelPackage.LicenseContext = LicenseContext.Commercial;
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             _pageTemplatePath = pageTemplatePath;
             _pageDestinationPath = pageDestinationPath;
             _availableComponents = availableComponents;

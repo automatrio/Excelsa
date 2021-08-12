@@ -1,22 +1,40 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.Extensions.Configuration;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace Excelsa.Core
 {
+    [TestFixture]
     public class TestFlow
     {
-        [SetUp]
-        public void Login()
-        {
+        private readonly IConfigurationRoot _config;
 
+        public TestFlow()
+        {
+            var projectPath = GlobalVariables.GetProjectPaths(typeof(TestFlow), onlyCorePath: true);
+
+            var builder = new ConfigurationBuilder()
+               .AddJsonFile(
+                Path.Combine(projectPath["ProjectPath"], "Core\\appsettings.json"),
+                optional: false,
+                reloadOnChange: true);
+
+            _config = builder.Build();
+        }
+
+        [SetUp]
+        public void BeginTest()
+        {
+            LoadGlobalVariables(_config);
 
             WebDriver.Driver = new ChromeDriver();
 
-            var urls = GlobalVariables.FallbackUrls;
+            var urls = GlobalVariables.FallbackUrls ?? new List<string>();
             urls.Insert(0, GlobalVariables.Url);
 
             foreach(var currentUrl in urls)
@@ -47,7 +65,7 @@ namespace Excelsa.Core
         }
 
         [TearDown]
-        public void EndOfTest()
+        public void EndTest()
         {
             TakeScreenshotIfNeeded();
 
@@ -101,6 +119,18 @@ namespace Excelsa.Core
                         );
 
                 image.SaveAsFile(filePathPrint, ScreenshotImageFormat.Jpeg);
+            }
+        }
+
+        private static void LoadGlobalVariables(IConfiguration config)
+        {
+            var properties = typeof(GlobalVariables).GetProperties();
+
+            foreach(var prop in properties)
+            {
+                var value = config.GetSection(prop.Name).Value;
+                var convertedValue = Convert.ChangeType(value, prop.PropertyType);
+                prop.SetValue(null, convertedValue);
             }
         }
     }

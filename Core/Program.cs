@@ -70,7 +70,7 @@ namespace Excelsa.Core
 
         public static async Task Main()
         {
-            GetProjectPaths();
+            Paths = GlobalVariables.GetProjectPaths(typeof(Program));
 
             var currentOption = Console.CursorTop;
 
@@ -573,43 +573,6 @@ namespace Excelsa.Core
 
         // Initialization
         #region
-        private static void GetProjectPaths()
-        {
-            // Project Path
-            string path = Assembly.GetAssembly(typeof(Program)).Location;
-            var pathSplit = path.Split('\\').ToList();
-            pathSplit = pathSplit.GetRange(0, pathSplit.Count() - 3);
-            var projectPath = "";
-            foreach (var folder in pathSplit) projectPath += folder + '\\';
-            Paths.Add("ProjectPath", projectPath);
-
-            // Components Path
-            var componentsPath = Path.Combine(projectPath, "Domain\\Components");
-            Paths.Add("Components", componentsPath);
-
-            // Pages Path
-            var pagesPath = Path.Combine(projectPath, "Domain\\Pages");
-            Paths.Add("Pages", pagesPath);
-
-            // Tests path
-            var testsPath = Path.Combine(projectPath, "Main\\Tests");
-            Paths.Add("Tests", testsPath);
-
-            // Templates
-            var componentTemplatePath = Path.Combine(projectPath, "Core\\Templates\\ComponentTemplate");
-            var pageTemplatePath = Path.Combine(projectPath, "Core\\Templates\\PageTemplate");
-            var testTemplatePath = Path.Combine(projectPath, "Core\\Templates\\TestTemplate");
-            Paths.Add("ComponentTemplate", componentTemplatePath);
-            Paths.Add("PageTemplate", pageTemplatePath);
-            Paths.Add("TestTemplate", testTemplatePath);
-
-            // Add_ Templates
-            var addComponentTemplatePath = Path.Combine(projectPath, "Core\\Templates\\AddComponentTemplate");
-            var addPageTemplatePath = Path.Combine(projectPath, "Core\\Templates\\AddPageTemplate");
-            Paths.Add("AddComponentTemplate", addComponentTemplatePath);
-            Paths.Add("AddPageTemplate", addPageTemplatePath);
-        }
-
         private static List<SelectOption> GetAvailableFilesInProject(string filetype)
         {
             var filesFound = new List<SelectOption>();

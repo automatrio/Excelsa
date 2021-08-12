@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Excelsa.Core.Base
 {
-    public abstract class TestBase
+    public abstract class TestBase : TestFlow
     {
         public abstract List<PageBase> Pages { get; }
         public abstract void ConductTest();
