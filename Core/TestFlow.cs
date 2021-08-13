@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 
@@ -13,14 +14,19 @@ namespace Excelsa.Core
     public class TestFlow
     {
         private readonly IConfigurationRoot _config;
+        private readonly string _projectPath;
 
         public TestFlow()
         {
-            var projectPath = GlobalVariables.GetProjectPaths(typeof(TestFlow), onlyCorePath: true);
+            _projectPath = GlobalVariables
+                .GetProjectPaths(
+                typeof(TestFlow),
+                onlyCorePath: true
+                )["ProjectPath"];
 
             var builder = new ConfigurationBuilder()
                .AddJsonFile(
-                Path.Combine(projectPath["ProjectPath"], "Core\\appsettings.json"),
+                Path.Combine(_projectPath, "Core\\appsettings.json"),
                 optional: false,
                 reloadOnChange: true);
 
@@ -73,12 +79,17 @@ namespace Excelsa.Core
             string filePathLog =
                 Path.Combine(
                         GlobalVariables.LogFolderPath,
-                        DateTime.Now.ToString("yyyy-MM-dd") + "_" + fileLog + ".jpg"
+                        DateTime.Now.ToString("yyyy-MM-dd") + "_" + fileLog + ".html"
                     );
 
-            string HTMLpath = @"\Core\Templates\HTML.txt";
-            string CSSpath = @"\Core\Templates\CSS.txt";
-            string JSpath = @"\Core\Templates\JS.txt";
+            string HTMLpath = Path.Combine(_projectPath, "Core\\Templates\\HTML");
+            string CSSpath = Path.Combine(_projectPath, "Core\\Templates\\CSS");
+            string JSpath = Path.Combine(_projectPath, "Core\\Templates\\JS");
+
+            if(!Directory.Exists(GlobalVariables.LogFolderPath))
+            {
+                Directory.CreateDirectory(GlobalVariables.LogFolderPath);
+            }
 
             using (var writer = new StreamWriter(filePathLog))
             {
@@ -96,8 +107,8 @@ namespace Excelsa.Core
                 document.Replace("JAVASCRIPT_CONTENT", js.ReadToEnd());
                 js.Close();
 
+                document.Replace("PROJECT_TITLE", GlobalVariables.ProjectTitle);
                 document.Replace("TESTS_CONTENT", GlobalVariables.MainLog.ToString());
-
                 document.Replace("DATETIME_CONTENT", DateTime.Now.ToString());
 
                 writer.WriteLine(document.ToString());
@@ -129,9 +140,16 @@ namespace Excelsa.Core
             foreach(var prop in properties)
             {
                 var value = config.GetSection(prop.Name).Value;
-                var convertedValue = Convert.ChangeType(value, prop.PropertyType);
+
+                var convertedValue = Convert.ChangeType(
+                    value,
+                    prop.PropertyType,
+                    CultureInfo.InvariantCulture);
+
                 prop.SetValue(null, convertedValue);
             }
+
+            GlobalVariables.MainLog = new StringBuilder();
         }
     }
 }

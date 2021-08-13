@@ -9,6 +9,7 @@ namespace Excelsa.Core
 {
     public static class GlobalVariables
     {
+        public static string ProjectTitle { get; set; }
         public static string Url { get; set; }
         public static List<string> FallbackUrls { get; set; }
         public static bool EmbeddedLogin { get; set; }
@@ -17,9 +18,9 @@ namespace Excelsa.Core
         public static bool TakeScreenshot { get; set; }  
         public static string ScreenshotFolderPath { get; set; }
         public static string LogFolderPath { get; set; }
-        public static float WaitTimePadding { get; set; } = 1.00f;
+        public static decimal WaitTimePadding { get; set; } = 1.00m;
 
-        public static StringBuilder MainLog { get; set; } = new StringBuilder();
+        public static StringBuilder MainLog { get; set; }
         public static Dictionary<string, string> GetProjectPaths(Type currentInstanceType, bool onlyCorePath = false)
         {
             var paths = new Dictionary<string, string>();

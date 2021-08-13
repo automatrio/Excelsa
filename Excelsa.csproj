@@ -165,8 +165,20 @@
     <Compile Include="Core\Base\ComponentBase.cs" />
     <Compile Include="Core\Base\SpecificationBase.cs" />
     <None Include="Core\Templates\ComponentTemplate" />
+    <Compile Include="Domain\Components\FooterCopyrightComponent.cs" />
+    <Compile Include="Domain\Components\InfoBoxBiotaComponent.cs" />
+    <Compile Include="Domain\Components\InTheNewsComponent.cs" />
+    <Compile Include="Domain\Components\MpTopBannerComponent.cs" />
+    <Compile Include="Domain\Components\NonExistentComponent.cs" />
+    <Compile Include="Domain\Components\ReferencesComponent.cs" />
+    <Compile Include="Domain\Components\SelectArticleComponent.cs" />
+    <Compile Include="Domain\Components\TocComponent.cs" />
+    <Compile Include="Domain\Pages\BrazilNutPage.cs" />
+    <Compile Include="Domain\Pages\HomePage.cs" />
+    <Compile Include="Domain\Pages\NotFoundPage.cs" />
     <Compile Include="Extensions\GeneralExtensions.cs" />
     <Compile Include="Extensions\SeleniumExtensions.cs" />
+    <Compile Include="Main\Tests\WikipediaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CodeGeneratorService.cs" />
     <Compile Include="Services\ImportExcelService.cs" />
@@ -189,10 +201,7 @@
     <None Include="Core\Templates\AddComponentTemplate" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Components\" />
-    <Folder Include="Domain\Pages\" />
     <Folder Include="Domain\Specifications\" />
-    <Folder Include="Main\Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

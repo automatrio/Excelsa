@@ -53,15 +53,16 @@ namespace Excelsa.Core
         };
         private static readonly Option[] _configureOptions =
 {
-            new Option(" (1/9) Write the URL for the website you will be testing: ", AnswerType.Path),
-            new Option(" (2/9) What fallback URLs would you like to input? (separate the with a pipe, \'|\')", AnswerType.List),
-            new Option(" (3/9) Is login embedded in the URL? (login via browser popup)", AnswerType.YesOrNo),
-            new Option(" (4/9) Name the login to access the given URL: ", AnswerType.Name),
-            new Option(" (5/9) Name the password to access the given URL: ", AnswerType.Name),
-            new Option(" (6/9) Do you want the test to take screenshots?", AnswerType.YesOrNo),
-            new Option(" (7/9) Where do you want to save your screenshots?", AnswerType.Path),
-            new Option(" (8/9) Where do you want to save your logs?", AnswerType.Path),
-            new Option(" (9/9) How much would you like to pad the waiting time? (good for slow connections, ex.: 1.5)", AnswerType.Number)
+            new Option(" (1/10) Give your project a name:", AnswerType.Name),
+            new Option(" (2/10) Write the URL for the website you will be testing: ", AnswerType.Path),
+            new Option(" (3/10) What fallback URLs would you like to input? (separate the with a pipe, \'|\')", AnswerType.List),
+            new Option(" (4/10) Is login embedded in the URL? (login via browser popup)", AnswerType.YesOrNo),
+            new Option(" (5/10) Name the login to access the given URL: ", AnswerType.Name),
+            new Option(" (6/10) Name the password to access the given URL: ", AnswerType.Name),
+            new Option(" (7/10) Do you want the test to take screenshots?", AnswerType.YesOrNo),
+            new Option(" (8/10) Where do you want to save your screenshots?", AnswerType.Path),
+            new Option(" (9/10) Where do you want to save your logs?", AnswerType.Path),
+            new Option(" (10/10) How much would you like to pad the waiting time? (good for slow connections, ex.: 1.5)", AnswerType.Number)
         };
         private static readonly Option[] _importExcelOptions =
         {

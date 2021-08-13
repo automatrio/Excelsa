@@ -106,7 +106,7 @@ STYLES_CONTENT
 </header>
 <body>
     <div class='centered-body'>
-        <h1> TESTS_TITLE </h1>
+        <h1> PROJECT_TITLE </h1>
         <h3>: : : Automated Tests Log : : :</h3>
         <h5> DATETIME_CONTENT </h5>
         <hr>

@@ -17,12 +17,13 @@ namespace Excelsa.Extensions
         }
 
         /// <summary>
-        /// Writes some <paramref name="text"/> to an input element.
+        /// Writes some <paramref name="text"/> to an input element. It's not necessary to have clicked on it first.
         /// </summary>
         /// <param name="element"></param>
         /// <param name="value"></param>
         public static void WriteText(this IWebElement element, string text)
         {
+            element.Click();
             element.SendKeys(text);
         }
 
@@ -42,9 +43,7 @@ namespace Excelsa.Extensions
         public static bool HasChildren(this IWebElement element)
         {
             string script = "return arguments[0].childElementCount > 0";
-            var result = WebDriver.Driver.Scripts().ExecuteScript(script, element);
-
-            return Convert.ToBoolean(result);
+            return (bool) WebDriver.Driver.Scripts().ExecuteScript(script, element);
         }
 
         /// <summary>
@@ -111,7 +110,6 @@ namespace Excelsa.Extensions
             SelectorType type)
         {
             string script;
-            object result;
 
             try
             {
@@ -186,7 +184,8 @@ namespace Excelsa.Extensions
         public static int CountChildren(this IWebElement element)
         {
             var script = $"return arguments[0].childElementCount";
-            return (int)WebDriver.Driver.Scripts().ExecuteScript(script, element);
+            object countResult = WebDriver.Driver.Scripts().ExecuteScript(script, element);
+            return Convert.ToInt32(countResult);
         }
 
         /// <summary>

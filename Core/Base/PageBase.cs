@@ -64,10 +64,10 @@ namespace Excelsa.Core.Base
         public void InitializeTest()
         {
             TestLog.AppendLine($@"
-                <li class='listlink RESULTADO' id='{Id}'>
-                    Page {PageName}
+                <li class='listlink RESULT' id='{Id}'>
+                    {PageName}Page
                 </li>
-                <li class='teste-content' id='teste {Id}'>");
+                <li class='test-content' id='test {Id}'>");
         }
 
         public void EndTest()

@@ -1,4 +1,4 @@
-﻿const testes = document.getElementsByClassName('teste');
+﻿const tests = document.getElementsByClassName('test');
 const collapsibles = document.getElementsByClassName('expandable');
 const listlinks = document.getElementsByClassName('listlink');
 const searchField = document.getElementById('search-field');
@@ -62,7 +62,7 @@ for(let link of listlinks) {
     i++;
 
     link.addEventListener('click', () => {
-        activeId = 'teste ' + link.id;
+        activeId = 'test ' + link.id;
         const content = document.getElementById(activeId);
 
         if(content.style.display === 'flex') {

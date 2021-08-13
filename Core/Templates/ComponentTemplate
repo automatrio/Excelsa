@@ -1,6 +1,6 @@
-﻿
+﻿using Excelsa.Core;
 using Excelsa.Core.Base;
-
+using Excelsa.Extensions;
 
 namespace Excelsa.Domain.Components
 {
@@ -8,8 +8,8 @@ namespace Excelsa.Domain.Components
     {
         private static readonly string path = "";
 
-        protected override string ScrollIntoViewScript { get; set; } = "";
-        protected override string ScrollIntoViewFallbackScript { get; set; } = "";
+        protected override string ScrollIntoViewScript { get; set; } = $"document.querySelector('{path}').scrollIntoViewIfNeeded()";
+        protected override string ScrollIntoViewFallbackScript { get; set; } = $"document.querySelector('{path}').scrollIntoViewIfNeeded()";
 
         public #COMPONENT_NAME#Component(
             SpecificationBase specification)

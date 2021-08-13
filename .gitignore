@@ -264,3 +264,15 @@ santanderMaisCertoUiV2/package-lock.json
 /package-lock.json
 /Core/appsettings.json
 /Domain/Components/MyOtherComponentComponent.cs
+/Domain/Pages/NotFoundPage.cs
+/Domain/Pages/HomePage.cs
+/Domain/Pages/BrazilNutPage.cs
+/Domain/Components/TocComponent.cs
+/Domain/Components/SelectArticleComponent.cs
+/Domain/Components/ReferencesComponent.cs
+/Domain/Components/NonExistentComponent.cs
+/Domain/Components/MpTopBannerComponent.cs
+/Domain/Components/InTheNewsComponent.cs
+/Domain/Components/InfoBoxBiotaComponent.cs
+/Domain/Components/FooterCopyrightComponent.cs
+/Main/Tests/WikipediaTest.cs

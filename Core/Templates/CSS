@@ -22,7 +22,7 @@ body {
     width: 60%;
 }
 
-.teste-content {
+.test-content {
     display: none;
     width: 800px;
     flex-direction: column;

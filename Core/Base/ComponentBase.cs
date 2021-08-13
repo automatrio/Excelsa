@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Excelsa.Core.Base
 {
-    public abstract class ComponentBase
+    public abstract class ComponentBase : ExcelsaDSL
     {
         protected bool testFail = true;
         protected StringBuilder internalLog = new StringBuilder();
@@ -149,6 +149,11 @@ namespace Excelsa.Core.Base
                     throw;
                 }
             }
+        }
+
+        protected void OnPageNotFound()
+        {
+            this.PageNotFound?.Invoke(this, EventArgs.Empty);
         }
     }
 
