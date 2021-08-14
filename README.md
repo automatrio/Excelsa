@@ -1,3 +1,5 @@
+![alt text](https://res.cloudinary.com/automatrio/image/upload/v1628900017/ExcelsaBackground4_jqudtq.png)
+
 # Excelsa
 A tiny framework wrapped around Selenium with tools and a project structure to get you started.
 
@@ -9,6 +11,7 @@ It's a set of tools designed to facilitate writing Selenium tests, namely:
  - [X] an HTML log generator that outputs a pretty and interactable log file after tests have ended;
  - [X] a boilerplate code generator that creates the basic files you need to start writing tests;
  - [X] a colorful console-application to help you generate said code and configure your own project.
+It is named after the Brazil nut *(Bertholletia **excelsa**)*, known to be rich in selenium.
  
 ### When is it useful?
 
